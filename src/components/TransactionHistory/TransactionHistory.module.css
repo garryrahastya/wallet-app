@@ -1,0 +1,92 @@
+.transactionCard {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 2em;
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.transactionList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.transactionItem {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.transactionInfo {
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.transactionDate {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.transactionAmount {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.transactionCategory {
+  color: #888;
+}
+
+.transactionUsers {
+  display: flex;
+  align-items: center;
+}
+
+.senderUser,
+.recipientUser {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.senderLabel,
+.recipientLabel {
+  margin-left: 4px;
+  color: #888;
+  font-size: 14px;
+}
+
+/* TransactionHistory.module.css */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination button.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.pagination button:hover {
+  background-color: #ccc;
+  color: #333;
+}

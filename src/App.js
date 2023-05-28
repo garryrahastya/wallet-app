@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import Login from "./containers/Login/Login.container";
+import Register from "./containers/Register/Register.container";
+import Root from "./containers/Root/Root.container";
+import Dashboard from "./containers/Dashboard/Dashboard.container";
+import AddFriend from "./containers/AddFriend/AddFriend.container";
+import Transaction from "./containers/Transaction/Transaction.container";
+
+const App = () => {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route path="" element={<Root />}>
+          <Route index element={<Dashboard />} />
+          <Route path="/addfriend" element={<AddFriend />} />
+          <Route path="/transaction" element={<Transaction />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </>
+    )
   );
-}
+  return <RouterProvider router={router} />;
+};
 
 export default App;
