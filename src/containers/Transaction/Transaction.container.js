@@ -121,12 +121,16 @@ const Transaction = () => {
 
             await axios.put(`${BASE_URL}/balances/${user.id}`, {
               ...senderBalanceData,
-              balance: senderBalanceData.startingBalance - parsedAmount,
+              balance: senderBalanceData.balance
+                ? senderBalanceData.balance - parsedAmount
+                : senderBalanceData.startingBalance - parsedAmount,
             });
 
             await axios.put(`${BASE_URL}/balances/${recipient.id}`, {
               ...recipientBalanceData,
-              balance: recipientBalanceData.startingBalance + parsedAmount,
+              balance: recipientBalanceData.balance
+                ? recipientBalanceData.balance + parsedAmount
+                : recipientBalanceData.startingBalance + parsedAmount,
             });
 
             const currentDate = getCurrentDate();

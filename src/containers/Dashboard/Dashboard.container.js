@@ -48,7 +48,7 @@ function Dashboard() {
       const balance = response.data[0]?.balance || null;
       setCurrentBalance(balance);
     } catch (error) {
-      toast.error("Error retrieving current balance");
+      toast.error("Error retrieving current balance:", error);
     }
   };
 
@@ -157,7 +157,6 @@ function Dashboard() {
       });
 
       setStartingBalance(Number(startingBalanceInput));
-      setCurrentBalance(Number(startingBalanceInput)); // Update current balance
       toast.success("Starting balance saved successfully!");
     } catch (error) {
       toast.error("Error saving starting balance");
