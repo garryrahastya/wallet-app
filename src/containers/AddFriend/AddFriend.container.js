@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
@@ -11,11 +11,16 @@ import { ClipLoader } from "react-spinners";
 const { BASE_URL } = constants;
 
 function AddFriend() {
-  const { user } = useContext(AppContext);
+  const { user, setUser } = useContext(AppContext);
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [userFriends, setUserFriends] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setUserFriends(user.friends);
+  }, [user]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -44,7 +49,7 @@ function AddFriend() {
       return;
     }
 
-    if (user.friends.includes(friendId)) {
+    if (userFriends.includes(friendId)) {
       toast.error("This user is already in your friends list.");
       return;
     }
@@ -67,19 +72,17 @@ function AddFriend() {
         friends: [...friendData.friends, user.id],
       };
 
-      // Check if friendId is already in the user's friends list
-      if (!user.friends.includes(friendId)) {
-        await axios.patch(`${BASE_URL}/users/${user.id}`, {
-          friends: updatedUser.friends,
-        });
-      }
+      await axios.patch(`${BASE_URL}/users/${user.id}`, {
+        friends: updatedUser.friends,
+      });
 
-      // Check if user.id is already in the friend's friends list
-      if (!friendData.friends.includes(user.id)) {
-        await axios.patch(`${BASE_URL}/users/${friendId}`, {
-          friends: updatedFriend.friends,
-        });
-      }
+      await axios.patch(`${BASE_URL}/users/${friendId}`, {
+        friends: updatedFriend.friends,
+      });
+
+      // Perbarui state user dengan daftar teman yang diperbarui
+      setUser(updatedUser);
+
       navigate("/");
       toast.success("Friend added successfully!");
     } catch (error) {
@@ -125,11 +128,11 @@ function AddFriend() {
               <button
                 className={styles.addButton}
                 onClick={() => handleAddFriend(result.id)}
-                disabled={user.friends.includes(result.id)}
+                disabled={userFriends.includes(result.id)}
               >
                 {isLoading ? (
                   <ClipLoader color={"#ffffff"} loading={true} size={12} />
-                ) : user.friends.includes(result.id) ? (
+                ) : userFriends.includes(result.id) ? (
                   "Added"
                 ) : (
                   "Add"
