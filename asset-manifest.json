@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/wallet-app/static/css/main.ee0ecdfb.css",
-    "main.js": "/wallet-app/static/js/main.6359c37f.js",
-    "static/js/787.774c4d99.chunk.js": "/wallet-app/static/js/787.774c4d99.chunk.js",
-    "static/media/logo.svg": "/wallet-app/static/media/logo.16875bef18293ce9650e9b0176231b69.svg",
-    "index.html": "/wallet-app/index.html",
-    "main.ee0ecdfb.css.map": "/wallet-app/static/css/main.ee0ecdfb.css.map",
-    "main.6359c37f.js.map": "/wallet-app/static/js/main.6359c37f.js.map",
-    "787.774c4d99.chunk.js.map": "/wallet-app/static/js/787.774c4d99.chunk.js.map"
+    "main.css": "/login/static/css/main.ee0ecdfb.css",
+    "main.js": "/login/static/js/main.a38d299f.js",
+    "static/js/787.774c4d99.chunk.js": "/login/static/js/787.774c4d99.chunk.js",
+    "static/media/logo.svg": "/login/static/media/logo.16875bef18293ce9650e9b0176231b69.svg",
+    "index.html": "/login/index.html",
+    "main.ee0ecdfb.css.map": "/login/static/css/main.ee0ecdfb.css.map",
+    "main.a38d299f.js.map": "/login/static/js/main.a38d299f.js.map",
+    "787.774c4d99.chunk.js.map": "/login/static/js/787.774c4d99.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ee0ecdfb.css",
-    "static/js/main.6359c37f.js"
+    "static/js/main.a38d299f.js"
   ]
 }
